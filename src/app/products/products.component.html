@@ -1,0 +1,85 @@
+<!-- <div>
+    <button class="btn btn-primary float-end mt-2 mr-3" (click)="back()">Back</button>
+</div>
+<h2 class="text-center">Add Your Product</h2>
+<div class="container">
+    <div class="alert alert-success text-center" role="alert" *ngIf="successMsg">
+        {{ successMsg }}
+    </div>
+<div class="card mx-auto" style=" width : 50%">
+<div class="card-body">
+<form [formGroup]="productForm" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 mb-3">
+          <label  class="form-label">Image :</label>
+          <input type="file" class="form-control" id="path" formControlName="path" (change)="fileSelect($event)" >
+        </div>
+    </div>
+    <div class="row">
+    <div class=" mb-3">
+        <label  class="form-label">Category : </label>
+        <select formControlName="category" class="ml-3">
+            <option [value]="cat" *ngFor="let cat of category">{{cat}}</option>
+        </select>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-6 col-sm-6 mb-3">
+        <label  class="form-label">Vegetable Name :</label>
+        <input type="text" class="form-control" id="productName" formControlName="productName">
+            <div *ngIf="productForm?.get('productName')?.invalid && (productForm?.get('productName')?.dirty || productForm?.get('productName')?.touched)"
+            class="alert alert-danger">
+                <div *ngIf="productForm?.get('productName')?.errors?.required">
+                   Product Name is required.
+                </div>
+            </div>
+    </div>
+    
+    <div class="col-xs-6 col-sm-6 mb-3">
+        <label  class="form-label">price(per KG) :</label>
+        <input type="text" class="form-control" id="price" formControlName="price">
+        <div *ngIf="productForm?.get('price')?.invalid && (productForm?.get('price')?.dirty || productForm?.get('price')?.touched)"
+            class="alert alert-danger">
+                <div *ngIf="productForm?.get('price')?.errors?.required">
+                    Price is required.
+                </div>
+                <div *ngIf="productForm?.get('price')?.errors?.pattern">
+                    Please enter numeric price only.
+                </div>
+            </div>
+      </div>
+    </div>
+    <div class="mx-auto">
+    <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid" (click)="uploadImage()">Save</button>
+    </div>
+</form>
+</div>
+</div>
+</div> -->
+
+<div *ngIf="products">
+    <h1 class="text-center pt-3">Our Products</h1>
+<div >
+<div class="row pb-5">
+<div class="col-sm-4 mx-auto" *ngFor="let prod of products">
+<div class="card text-center mt-2 mb-2" style="width: 18rem;" >
+    <img class="card-img-top" [src]="path + prod.picByte" [alt]="prod.productName"
+    style="width: 285px; height: 300px;">
+    <div class="card-body">
+      <h3 class="card-title">{{ prod.productName }}</h3>
+      <div class="card-text">
+          <div>Category : {{ prod.category }}</div>
+          <div>Price : {{ prod.price }}</div>
+      </div>
+      <div class="pt-3">
+      <a class="btn btn-primary float-xl-left" style="color: aliceblue;" (click)="addToCart(prod.productId)">Add To Cart</a>
+      <a class="btn btn-primary float-xl-right" style="color: aliceblue;" (click)="checkout1(prod)">Buy</a>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

@@ -1,0 +1,42 @@
+<br><br><br><br><br>
+<!-- donation.component.html -->
+<div class="donation-form">
+    <h2>Donation Form</h2>
+    <form (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number:</label>
+        <input type="tel" id="mobileNumber" name="mobileNumber" [(ngModel)]="donation.mobileNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="donation.name" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" [(ngModel)]="donation.location" required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" [(ngModel)]="donation.category" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" [(ngModel)]="donation.quantity" required>
+      </div>
+      <div>
+        <label for="quantity">Image:</label>
+        <div class="container row">
+            <div class="col-md-6">
+                <input type="file">
+        
+            </div><br>
+            <div class="col-md-12">
+                <input type="button" value="upload">
+            </div>
+        </div><br>
+
+    </div>
+      <button type="submit">Donate</button>
+    </form>
+  </div>
+  

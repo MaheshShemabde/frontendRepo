@@ -1,0 +1,27 @@
+<h1>Books Admin</h1>
+
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th> product ID</th>
+          <th>product Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.productId}}</td>
+          <td>{{product.productName}}</td>
+          <td>
+            <!-- <button type="button" class="btn btn-primary" (click)="setProduct(product.productId)">Show Details</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    View product Details/Add product
+  </div>
+</div>
